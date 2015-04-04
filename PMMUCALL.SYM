@@ -1,0 +1,18 @@
+;________________________________________
+;[		Pmmu Calls		]
+;[______________________________________]
+
+; Adresses des fonctions de gestion de la PMMU.
+
+PMMUBASE = $FE8000
+
+PMMULOG2PHYS	=	PMMUBASE
+PMMUTRANSLATE	=	PMMUBASE+4
+PMMURESERVE	=	PMMUBASE+8
+PMMUVROMON	=	PMMUBASE+12
+PMMUVROMOFF	=	PMMUBASE+16
+PMMUCOPY	=	PMMUBASE+20
+
+; Zones r‚serv‚es pour les appels courts.
+
+FASTROUTS	=	$FFFFC000

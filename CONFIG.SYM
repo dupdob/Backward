@@ -1,0 +1,82 @@
+; D‚finitions pour la configration
+
+; Nombre d'exceptions g‚r‚es.
+NB_EXC	=	128
+
+; cl‚ d'enregistrement.
+
+KEY='BACK'
+	RSRESET
+Motor=1		; fr‚quence 68030.
+ICache=2
+DCache=4
+Caches=ICache+DCache	; 2 bits pour les caches.
+Buserr=8+16	; 2 bits pour la gestion des erreurs bus.
+CBus=8		; mode corrig‚.
+SBus=16		; mode sp‚cial.
+StBus=24	; mode STE.
+TosPatch=32	; correction systŠme.
+Memsize=64+128	; 2 bits pour la m‚moire (512, 1024, r‚s, max).
+Mem512=0
+Mem1024=64
+Mem2048=128
+MemMax=128+64
+InSpeak=256	; HP.
+HardD=512	; disque dur.
+Gem=1024	; GEM.
+Video=2048+4096 ; Mode video
+VLow=0
+VMed=2048
+VHigh=4096
+VDef=Video
+Data	RS.l	1
+Res	RS.l	1
+SIZECONFIG	RS	0
+
+; Structure de Disk Config.
+		RSRESET
+Name		RS.b	32		;Nom de la configuration.
+Config		RS.b	SIZECONFIG	;Configuration aff‚rente.
+Chk1		RS.l	1		;Checksum 1.
+Chk2		RS.l	1		;Checksum 2.
+Chk3		RS.l	1		;Checksum 3.
+SIZEDISK	RS	0
+
+; structure de configuration.
+	RSRESET
+; Information diverses.
+Version		RS	1	; 
+_Config_	Rs.l	1	; fonction charg‚e de la reconfiguration.
+_Set_Prefs	Rs.l	1	; fonction charg‚e de fixer les pr‚f‚rences.
+_library	Rs.l	1	; buffer bibliothŠque.
+_lib_size	RS	1	; taille.
+_lib_max	RS	1	; taille max de la librairie.
+_shell		RS.l	1	; programme ‚x‚cut‚ si pas de GEM.
+resl		RS.l	3	; r‚serv‚.
+; Configuration variable suivant le set-up.
+__SETUP		Rs.b	0
+pCache		Rs.l	1	; ‚tat de CACR.
+memSize		Rs.b	1	; taille m‚moire.
+pTOS		Rs.b	1	; patchs systŠmes.
+pBusMode	Rs.b	1	; mode bus (0 vecteur, 1 mode ST, 2 mode corrig‚).
+pClock		Rs.b	1	; fr‚quence 68030.
+pVideo		Rs.b	1	; mode video au boot (mode ST ou -1).
+pScreen		Rs.b	1	; type d'‚cran.
+pHD		Rs.b	1	; avec/sans HD.
+pGEM		Rs.b	1	; GEM on/off.
+pSpeaker	Rs.b	1	; HP on/off.
+pLogo		Rs.b	1	; Logo on/off.
+pIDE		Rs.b	1	; IDE on/off.
+resb		Rs.b	10	; r‚serv‚
+CONFIG_SIZE	Rs	0
+SETUP_SIZE=CONFIG_SIZE-__SETUP
+
+; structure pour le fichier de pr‚f.
+	RSRESET
+defaults	RS.b	SIZECONFIG	; param par d‚faut.
+UName		RS.b	34		; nom
+UKey		RS.b	10		; cl‚
+Multiscan	RS.b	1		; multiscan on/off
+Logo		Rs.b	1		; ATARI logo on/off.
+IDE		Rs.b	1		; IDE drive on/off.
+SIZEPREF	RS.b	0
