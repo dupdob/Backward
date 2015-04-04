@@ -35,5 +35,17 @@ through multiple address on the ST, whereas only the official address was suppor
   * Fix the code: in case of error, Backward tried to patch the original code. It was the most efficient when it works,
   but as only a handful of patterns were recognized, it could lead to worse performance than the other two when it did not
   recognize the code.
+
 ## TOS
-* integration of several BIOS patches
+* memory side override
+* integration of several BIOS patches. _Through the years, I identified and fixed several bugs within the BIOS._ You have to keep in mind that it was not possible to update your OS in those machines. You had the version that was burned in the ROMs and that's it.
+* modifications of the OS variables mapping, so that games using undocumented variables could still function.
+* turning GEM on/off: it allowed to shave some bytes within the system variables. _I was even able to have some games running whereas that could only run on the TOS 1.0._
+* using the TOS version of your own choosing, assuming you had a file copy of it.
+
+
+# Some technical details
+* Backward is full assembler, even the GUI. Which was not a smart choice, but I did not know C at that time, and any kind of basic was out of question.
+* While the 68030 came with an integrated MMU, allowing memory virtualization, the operating system made no use of it. In the latest version of Backward, I had implemented a crude virtual memory manager that allowed me to enable a 'copy on write' strategy for the ROMs. This way I could patch them easily, and ultimately allow users to load whatever TOS versions they wanted.
+* I used to ask people to send me copy of their TOS so I could adjust my patches to each version. My Falcon had a TOS 4.02, but I got my hands on a TOS 4.01 and a TOS 4.04.
+* In the end, Backwards contained something like 20+ bug fixes for the BIOS.
