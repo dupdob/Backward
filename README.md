@@ -3,7 +3,7 @@ Backward is Atari Falcon software dedicated to Falcon - ST compatibility
 
 # Motivations
 I did write it over the 1993-1995 period. It aims at increasing compatibility of *Atari ST* softwares with the *Atari Falcon 30*.
-I publish it for historial interest, if any, as it has a string coupling with the Falcon 30 hardware.
+I publish it for historial interest, if any, as it has a strong coupling with the Falcon 30 hardware.
 
 # Presentation
 Out of the box, roughly 60%-70% of games were properly running on the Falcon, but thanks to various tricks, Backward
