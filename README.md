@@ -37,7 +37,7 @@ through multiple address on the ST, whereas only the official address was suppor
   recognize the code.
 
 ## TOS
-* memory side override
+* memory size override
 * integration of several BIOS patches. _Through the years, I identified and fixed several bugs within the BIOS._ You have to keep in mind that it was not possible to update your OS in those machines. You had the version that was burned in the ROMs and that's it.
 * modifications of the OS variables mapping, so that games using undocumented variables could still function.
 * turning GEM on/off: it allowed to shave some bytes within the system variables. _I was even able to have some games running whereas that could only run on the TOS 1.0._
